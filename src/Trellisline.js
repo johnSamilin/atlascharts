@@ -110,7 +110,7 @@ class Trellisline extends Chart {
           .attr('y1', 10)
           .attr('x2', 10)
           .attr('y2', 10)
-          .style('stroke', () => options.colors[d]);
+          .style('stroke', () => options.colors(d));
         legendItem.attr('transform', `translate(${offset}, 0)`);
         offset += legendItem.node().getBBox().width + 5;
       });
@@ -347,7 +347,7 @@ class Trellisline extends Chart {
           d3.ascending(a.date, b.date)
         ))
       )
-      .style('stroke', d => options.colors[d.key]);
+      .style('stroke', d => options.colors(d.key));
 
     gSeries.append('circle')
       .attr('class', 'g-value')
